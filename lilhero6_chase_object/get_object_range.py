@@ -39,15 +39,10 @@ class ObjectRange(Node):
 
         self.publish_angle_pos = self.create_publisher(Float32, '/angle_pos', 5)
         self.publish_distance = self.create_publisher(Float32, '/dist', 5)
-
-        # timer_period = 0.5
-        # self.timer = self.create_timer(timer_period, self.rotate_robot)
-        # self.i = 0
-
     
 
     def get_lidar_data(self, msg):
-        ranges = msg.ranges #use this list
+        ranges = msg.ranges
         
         size_ranges = len(ranges)
         ratio = size_ranges/360
@@ -75,8 +70,6 @@ class ObjectRange(Node):
             self.angle_pos.data = float('inf')
         else:
             self.angle_pos.data = (self.fov * self.pos_x/self.total_xframe) - self.fov/2
-
-        # print('Angle: ', self.angle_pos.data)
 
         self.publish_angle_pos.publish(self.angle_pos)
 

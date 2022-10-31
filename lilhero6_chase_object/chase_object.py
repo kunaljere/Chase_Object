@@ -59,15 +59,11 @@ class ChaseObject(Node):
         self.follow_object()
 
     def follow_object(self):
-        # print('Angle: ', str(self.object_angle))
-        # print('Dist: ', str(self.object_dist))
         move = Twist()
 
         deriv_dist_err =  (self.object_dist - self.prev_dist)/self.dt
         deriv_ang_err = (self.object_angle - self.prev_ang)/self.dt
 
-        # prev_error_angle = 0
-        # prev_error_dist = 0
         
 
         if self.object_dist == float('inf') and self.object_angle == float('inf'):
@@ -86,8 +82,8 @@ class ChaseObject(Node):
             print('Error Distance: ', error_distance)
             print('Error Angle: ', error_angle)
 
-            w_distance = self.kp_linear * error_distance #+ self.kd_linear * deriv_dist_err
-            w_angular = self.kp_angular * error_angle/31.1 #+ self.kd_angular * deriv_ang_err
+            w_distance = self.kp_linear * error_distance
+            w_angular = self.kp_angular * error_angle/31.1
 
             
 
@@ -101,12 +97,12 @@ class ChaseObject(Node):
             print("test ",bool_dist, bool_ang)
             
             #limits on simultaneous large linear and angular movements
-            if (abs(error_distance) < threshold_linear): # and abs(error_angle) > threshold_angular):
+            if (abs(error_distance) < threshold_linear):
                 print('Stop Linear')
                 w_distance = 0.0
 
             
-            if (abs(error_angle) < threshold_angular): # and abs(error_distance) > threshold_linear):
+            if (abs(error_angle) < threshold_angular):
                 w_angular = 0.0
                 print('Stop Angular')
 
@@ -137,9 +133,6 @@ class ChaseObject(Node):
                         w_angular = -1*self.min_angular_velocity
                     else:
                         w_angular = self.min_angular_velocity
-
-                # if error_distance < 0:
-                #     w_angular = -1*w_angular
                             
 
             elif (abs(error_angle) < threshold_angular and abs(error_distance) < threshold_linear): 
