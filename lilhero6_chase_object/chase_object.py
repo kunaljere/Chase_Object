@@ -22,7 +22,7 @@ class ChaseObject(Node):
         self.object_dist = 0
 
         self.goal_distance = 0.4
-        self.goal_angle = 0
+        self.goal_angle = 0.0
 
         self.prev_dist = 0.0
         self.prev_ang = 0.0
