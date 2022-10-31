@@ -105,34 +105,10 @@ class ChaseObject(Node):
                 print('Stop Linear')
                 w_distance = 0.0
 
-                # if abs(w_angular) > self.max_angular_velocity:
-                #     if w_angular < 0:
-                #         w_angular = -1*self.max_angular_velocity
-                #     else:
-                #         w_angular = self.max_angular_velocity
-
-                # elif abs(w_angular) < self.min_angular_velocity:
-                #     if w_angular < 0:
-                #         w_angular = -1*self.min_angular_velocity
-                #     else:
-                #         w_angular = self.min_angular_velocity
-
             
             if (abs(error_angle) < threshold_angular): # and abs(error_distance) > threshold_linear):
                 w_angular = 0.0
                 print('Stop Angular')
-
-                # if abs(w_distance) > self.max_linear_velocity:
-                #     if w_distance < 0:
-                #         w_distance = -1*self.max_linear_velocity
-                #     else:
-                #         w_distance = self.max_linear_velocity
-
-                # elif abs(w_distance) < self.min_linear_velocity:
-                #     if w_distance < 0:
-                #         w_distance = -1*self.min_linear_velocity
-                #     else:
-                #         w_distance = self.min_linear_velocity
 
             if (abs(error_distance) > threshold_linear and abs(error_angle) > threshold_angular):
                 print('MOVE')
