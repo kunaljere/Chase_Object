@@ -77,7 +77,6 @@ class ObjectRange(Node):
 
 def main():
 	rclpy.init() #init routine needed for ROS2.
-	# video_subscriber = MinimalVideoSubscriber() #Create class object to be used.
 	object_range = ObjectRange() #Create class object to be used.
 	
 	rclpy.spin(object_range) # Trigger callback processing.		
