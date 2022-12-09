@@ -1,4 +1,7 @@
 # Chase_Object
+
+![](https://github.com/kunaljere/Chase_Object/blob/main/chase_object_demo.gif)
+
 ROS 2 program that sends a TurtleBot3 Burger to track a yellow object at a set distance using proportional control
 
 All relevant nodes are under the lilhero6_chase_object folder
